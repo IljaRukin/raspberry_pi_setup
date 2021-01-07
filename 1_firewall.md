@@ -40,7 +40,8 @@ sudo nano /etc/default/ufw
 IPV6=yes
 ```
 
-###`my setup:
+###my setup
+```
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow ssh
@@ -51,3 +52,4 @@ sudo ufw allow 8883
 sudo ufw allow 139
 sudo ufw allow 445
 sudo ufw enable
+```
