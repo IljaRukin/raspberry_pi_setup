@@ -21,7 +21,7 @@ network={
 initial
 ```
 login: pi
-password: rasberry
+password: raspberry
 ```
 change password
 ```
