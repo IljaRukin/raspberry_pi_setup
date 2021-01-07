@@ -1,2 +1,2 @@
 # raspberry_pi_setup
-setup instructions for raspberry pi with webserver, nas, camera, power button and more.
+instructions for raspberry pi to setup webserver, nas, camera, power button and more.
