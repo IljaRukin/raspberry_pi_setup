@@ -160,3 +160,77 @@ ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
 ssl_prefer_server_ciphers on;
 ```
+
+
+## current complete setup
+at: ``sudo nano /etc/nginx/sites-enabled/default`` \
+including some outcommented (untested) code
+```
+##user under wich the webserver runs (linux standard is www-data)
+#user www-data;
+##number of worker processes
+#worker_processes 1;
+##number of connections per worker processes
+#worker_connections 256;
+
+###web
+
+server {
+	#listen on ports
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	listen 443 ssl;
+	listen [::]:443 ssl;
+
+	#setup
+	root /var/www/html;
+	index index.php index.html index.htm;
+	server_name technic.dynv6.net;
+	access_log /dev/null;
+	error_log /dev/null;
+
+	#ssl
+	ssl_certificate /etc/letsencrypt/live/technic.dynv6.net/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/technic.dynv6.net/privkey.pem;
+	ssl_session_timeout 5m;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+	ssl_prefer_server_ciphers on;
+
+	#serve: file -> directory -> 404
+	error_page 404 /404.html;
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	#php
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+	}
+}
+
+###mqtt
+#
+##function: adress of mqtt server for reverse proxy
+#upstream mqtt_server {
+#    server 127.0.0.1:18831; #mqtt server 1
+#    zone tcp_mem 64k; #memory shared by all worker processes
+#}
+
+#function: test connection
+#match mqtt_conn {
+#        # Send CONNECT packet with client ID "nginx health check"
+#        send   \x10\x20\x00\x06\x4d\x51\x49\x73\x64\x70\x03\x02\x00\x3c\x00\x12\x6e\x67\x69\x6e\x78\x20\x68\x65\x61\x6c\x74\x68\x20\x63\x68\x65\x63\x6b;
+#        expect \x20\x02\x00\x00; # Entire payload of CONNACK packet
+#}
+#
+#define mqtt server
+#server {
+#    listen 1883;
+#    proxy_pass mqtt_server;
+#    proxy_connect_timeout 1s;
+#    health_check match=mqtt_conn;
+#}
+
+```
