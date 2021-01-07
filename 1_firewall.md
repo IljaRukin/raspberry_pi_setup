@@ -40,7 +40,7 @@ sudo nano /etc/default/ufw
 IPV6=yes
 ```
 
-###my setup
+### my setup
 ```
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
