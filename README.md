@@ -5,4 +5,3 @@ the instructions are located in separate files.
 here is a image of the pi gpio pins for quick reference:
 
 <img src="/raspberry_pi_gpio.png" >
-![](/raspberry_pi_gpio.png | width=50)
