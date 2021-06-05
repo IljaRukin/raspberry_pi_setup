@@ -35,8 +35,6 @@ unmount device
 sudo umount /media/sda
 ```
 
-/dev/sda1  exfat   Intenso 3TB /media/storage 2286-4E74
-
 ### mount on start
 by editing
 ```
