@@ -1,5 +1,5 @@
 
-### install micro text editor
+## install micro text editor
 install:
 ```
 wget https://getmic.ro
