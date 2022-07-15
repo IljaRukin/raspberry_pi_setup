@@ -88,6 +88,32 @@ macchanger -s eth0
 
 then add a manual entry to your router for said MAC
 
+### set up static ip
+(did it work ?; don't know!)
+edit file
+```
+sudo nano /etc/dhcpcd.conf
+```
+
+add text
+```
+interface eth0
+metric 1
+static ip_address=192.168.2.105/24
+#static ip6_address=fd51:42f8:caae:d92e::ff/64
+static routers=192.168.2.1
+static domain_name_servers=192.168.2.1
+#static domain_name_servers=192.168.2.1 8.8.8.8 fd51:42f8:caae:d92e::1
+
+interface wlan0
+metric 2
+static ip_address=192.168.2.130/24
+#static ip6_address=fd51:42f8:caae:d92e::ff/64
+static routers=192.168.2.1
+static domain_name_servers=192.168.2.1
+#static domain_name_servers=192.168.2.1 8.8.8.8 fd51:42f8:caae:d92e::1
+```
+
 ### optional
 
 enable/disable other network interfaces (e.g. wifi)
