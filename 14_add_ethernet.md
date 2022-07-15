@@ -88,8 +88,8 @@ macchanger -s eth0
 
 then add a manual entry to your router for said MAC
 
-### set up static ip
-(did it work ?; don't know!)
+### set up static ip (did it work ? don't know!)
+
 edit file
 ```
 sudo nano /etc/dhcpcd.conf
