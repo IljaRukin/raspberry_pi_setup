@@ -30,7 +30,7 @@ sudo nano /boot/config.txt
 ```
 by adding the following lines
 ```
-dtoverlay=W5500LAN,spi0-0,dev="w5500",speed=30000000
+dtoverlay=anyspi,spi0-0,dev="w5500",speed=30000000
 dtoverlay=w5500
 ```
 
