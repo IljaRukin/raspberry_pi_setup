@@ -36,7 +36,7 @@ dtoverlay=w5500
 
 list network devices (for testing)
 ```
-ifconfig 
+ifconfig
 ```
 
 enable/disable other network interfaces (e.g. wifi)
