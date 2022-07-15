@@ -1,5 +1,7 @@
 # Raspberry Pi - Power Button
 
+for button connecting gpio3 (on pin5) with ground (e.g. on pin6)
+
 create power off script
 ```
 sudo nano listen-for-shutdown.py
