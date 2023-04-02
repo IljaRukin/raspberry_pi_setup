@@ -74,7 +74,7 @@ edit:
 ```
 sudo nano /etc/nginx/sites-enabled/default
 ```
-by chan changing line to:
+by changing line to:
 ```
 index index.php index.html index.htm
 ```
