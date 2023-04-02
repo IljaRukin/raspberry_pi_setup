@@ -7,7 +7,9 @@
 
 ### create ipv6 update script:
 ```
-sudo nano dynv6.sh
+sudo mkdir /var/www/html/ip_update/
+sudo touch /var/www/html/ip_update/ipv6.txt
+sudo nano /var/www/html/ip_update/dynv6.sh
 ```
 
 with the following script:
@@ -44,7 +46,7 @@ wich updates ip address of your web domain if the ip adress of your raspberry pi
 
 make script executable:
 ```
-sudo chmod +x dynv6.sh
+sudo chmod +x /var/www/html/ip_update/dynv6.sh
 ```
 
 create new crontab task:
@@ -53,7 +55,7 @@ crontab -e
 ```
 with update every 5 minutes
 ```
-*/5 * * * * /var/www/html/dynv6.sh
+*/5 * * * * /var/www/html/ip_update/dynv6.sh
 ```
 
 list crontabs:
