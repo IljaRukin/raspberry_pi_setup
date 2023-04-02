@@ -27,7 +27,7 @@ with the new version no default user exist. therefore a user should be defined i
 ```
 username:hashed-password
 ```
-to generate the hashed password run the python script "generate_hash.py"
+to generate the hashed password run "openssl passwd -6 _you_password_"
 
 ### edit users
 change password
