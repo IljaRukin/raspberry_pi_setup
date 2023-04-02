@@ -18,11 +18,18 @@ network={
 ```
 
 ###  login data
-initial
+former the initial login data was:
 ```
 login: pi
 password: raspberry
 ```
+with the new version no default user exist. therefore a user should be defined in a file "/boot/userconf" with the content
+```
+username:hashed-password
+```
+to generate the hashed password run the python script "generate_hash.py"
+
+### edit users
 change password
 ```
 passwd
