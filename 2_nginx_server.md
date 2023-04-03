@@ -154,7 +154,7 @@ listen [::]:443 ssl;
 
 #ssl
 ssl_certificate /etc/letsencrypt/live/mysite.net/fullchain.pem;
-ssl_certificate_key your-/etc/letsencrypt/live/mysite.net/privkey.pem;
+ssl_certificate_key /etc/letsencrypt/live/mysite.net/privkey.pem;
 ssl_session_timeout 5m;
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
