@@ -48,6 +48,6 @@ sudo deluser -remove-home #name#
 ### change network name
 ```
 sudo raspi-config
-*network options
+*system options
 *hostname
 ```
