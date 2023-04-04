@@ -1,0 +1,53 @@
+# Raspberry Pi - setup ssh over rsa
+
+edit ssh config
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+and make a similiar configuration as
+```
+# Authentication:
+LoginGraceTime 600
+PermitRootLogin no
+StrictModes yes
+MaxAuthTries 10
+MaxSessions 1
+
+PubkeyAuthentication yes
+RSAAuthentication yes
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+AuthorizedKeysFile      .ssh/authorized_keys .ssh/authorized_keys2
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+PermitEmptyPasswords no
+
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+ChallengeResponseAuthentication no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM no
+```
+
+then create the public and private rsa key e.g. with PuTTYgen and save them on your drive, use a ssh-keygen passphrase for security.
+the private key remains on your pc while the public key will be placed onto the raspberry pi.
+
+for this create a directory on the pi for the key
+```
+mkdir ~/.ssh
+chmod 0700 ~/.ssh
+touch ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+sudo nano ~/.ssh/authorized_keys
+```
+and copy the public key inside this file
