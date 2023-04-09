@@ -16,6 +16,7 @@ import os
 
 def Shutdown():
   os.system("sudo shutdown -h now")
+  return None
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
