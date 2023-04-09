@@ -1,6 +1,6 @@
 # Raspberry Pi - Power Button
 
-NEW VERSION
+## NEW VERSION
 
 for button connecting gpio3 (on pin5) with ground (e.g. on pin6)
 
@@ -29,18 +29,18 @@ sudo nano /etc/rc.local
 ```
 and adding  at the end of the file
 ```
-sudo python3 /home/pi/listen-for-shutdown.py &
+sudo python3 /usr/local/bin/listen-for-shutdown.py &
 ```
 
 or by issuing a crontab
 ```
 sudo crontab -e
-@ startub
+@ reboot /usr/local/bin/listen-for-shutdown.py
 ```
 
 --------------------------------------------------
 
-OLD VERSION
+## OLD VERSION
 
 create power off script
 ```
