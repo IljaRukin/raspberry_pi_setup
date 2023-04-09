@@ -1,6 +1,46 @@
 # Raspberry Pi - Power Button
 
+NEW VERSION
+
 for button connecting gpio3 (on pin5) with ground (e.g. on pin6)
+
+create power off script
+```
+sudo nano /usr/local/bin/listen-for-shutdown.py
+sudo chmod +x /usr/local/bin/listen-for-shutdown.py
+```
+with content
+```
+#!/usr/bin/env python
+
+import RPi.GPIO as GPIO
+import os
+
+def Shutdown():
+  os.system("sudo shutdown -h now")
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.add_event_detect(3, GPIO.FALLING, callback=Shutdown, bouncetime=200)
+```
+execute at startup by editing
+```
+sudo nano /etc/rc.local
+```
+and adding  at the end of the file
+```
+sudo python3 /home/pi/listen-for-shutdown.py &
+```
+
+or by issuing a crontab
+```
+sudo crontab -e
+@ startub
+```
+
+--------------------------------------------------
+
+OLD VERSION
 
 create power off script
 ```
