@@ -4,7 +4,7 @@ for button connecting gpio3 (on pin5) with ground (e.g. on pin6)
 
 create power off script
 ```
-sudo nano listen-for-shutdown.py
+sudo nano /usr/local/bin/listen-for-shutdown.py
 ```
 with content
 ```
@@ -20,15 +20,14 @@ GPIO.wait_for_edge(3, GPIO.FALLING)
 subprocess.call(['shutdown', '-h', 'now'], shell=False)
 ```
 
-move and make executable
+make executable
 ```
-sudo mv listen-for-shutdown.py /usr/local/bin/
 sudo chmod +x /usr/local/bin/listen-for-shutdown.py
 ```
 
 create file to start service
 ```
-sudo nano listen-for-shutdown.sh
+sudo nano /etc/init.d/listen-for-shutdown.sh
 ```
 with content
 ```
@@ -63,9 +62,8 @@ esac
 exit 0
 ```
 
-move and make executable
+make executable
 ```
-sudo mv listen-for-shutdown.sh /etc/init.d/
 sudo chmod +x /etc/init.d/listen-for-shutdown.sh
 ```
 
