@@ -11,6 +11,7 @@ sudo chmod +x /usr/local/bin/listen-for-shutdown.py
 ```
 with content
 ```
+#!/usr/bin/env python
 import RPi.GPIO as GPIO
 import os
 
