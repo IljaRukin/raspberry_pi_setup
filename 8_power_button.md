@@ -78,9 +78,3 @@ start script (for first time only):
 ```
 sudo /etc/init.d/listen-for-shutdown.sh start
 ```
-
-or by issuing a crontab
-```
-sudo crontab -e
-@ reboot /usr/local/bin/listen-for-shutdown.py
-```
