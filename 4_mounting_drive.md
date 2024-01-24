@@ -46,5 +46,9 @@ UUID=52867E21867E062F /media/storage auto default,user,nofail 0 2
 ```
 and changing permissions
 ```
+chown :#smbgrp# /media/storage
+```
+or (dangerous)
+```
 sudo chmod -R 0777 /media/storage
 ```
