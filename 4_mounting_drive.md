@@ -3,7 +3,7 @@
 install ntfs and exfat drivers
 ```
 sudo apt-get install ntfs-3g
-sudo apt-get install exfat-fuse exfat-utils
+sudo apt-get install exfat-fuse exfatprogs
 ```
 
 list devices
