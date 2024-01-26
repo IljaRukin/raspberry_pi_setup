@@ -3,12 +3,19 @@
 install ntfs and exfat drivers
 ```
 sudo apt-get install ntfs-3g
+```
+```
 sudo apt-get install exfat-fuse exfatprogs
 ```
 
 list devices
 ```
 sudo blkid -o list
+```
+
+more info
+```
+sudo smartctl -a /dev/sda -d sat
 ```
 
 create directory for storage device mounting point
@@ -42,11 +49,11 @@ sudo nano -Bw /etc/fstab
 ```
 and adding:
 ```
-UUID=52867E21867E062F /media/storage auto default,user,nofail 0 2
+UUID=52867E21867E062F /media/storage auto default,smbuser,nofail 0 2
 ```
 and changing permissions
 ```
-chown :#smbgrp# /media/storage
+chown :#smbgroup# /media/storage
 ```
 or (dangerous)
 ```
