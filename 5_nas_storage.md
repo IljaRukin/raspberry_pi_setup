@@ -8,19 +8,19 @@ sudo apt-get install samba
 ### user/password setup
 new group
 ```
-sudo addgroup #smbgrp#
+sudo addgroup #smbgroup#
 ```
 delete group
 ```
-sudo groupdel #smbgrp#
+sudo groupdel #smbgroup#
 ```
 new user
 ```
-useradd #user# -G #smbgrp#
+useradd #smbuser# -G #smbgroup#
 ```
 new password
 ```
-sudo smbpasswd -a #user#
+sudo smbpasswd -a #smbuser#
 ```
 
 ### prepare drive
@@ -30,7 +30,7 @@ sudo mount -t auto -o utf8,uid=pi,gid=pi,noatime /dev/sda /media/storage
 ```
 change folder access permission:
 ```
-sudo chown root:#smbgrp# /media/storage
+sudo chown root:#smbgroup# /media/storage
 ```
 
 ### configure samba
