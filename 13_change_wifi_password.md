@@ -17,3 +17,7 @@ or use the network manager
 ```
 nmtui
 ```
+start if, if it is not running prior
+```
+sudo systemctl start NetworkManager
+```
